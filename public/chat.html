@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/emojify.min.css">
+    <link rel="stylesheet" href="/css/emojify-emoticons.min">
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/js/emojify.min.js"></script>
+    <title>Chat</title>
+</head>
+
+<body>
+    <div ng-app="chatApp" id="controllerDiv" ng-controller="ctrl" class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div>
+                    <h2 id="chatName" class="chat-name"></h2>
+                    <h5>Messages</h5>
+                </div>
+                <div id="showMore" class="center" ng-if="userIsDefined()">
+                    <span>Show last [
+                        <span ng-repeat="item in messagesLimits">
+                            <a href="" ng-click="showMore(item)" ng-if="item != currentLimit">{{item}}</a>
+                            <span ng-if="item == currentLimit" ng-class="{bold: item == currentLimit}">{{item}}</span>
+                        </span>
+                        |
+                        <a href="" ng-if="currentLimit != -1" ng-click="showMore(-1)">All</a>
+                        <span ng-if="currentLimit == -1" ng-class="{bold: currentLimit == -1}">All</span> ] messages
+                    </span>
+                </div>
+                <div id="messagesContainer">
+                    <div ng-if="loading" class="center">
+                        <img src="img/loading3.gif" class="imageMessage">
+                    </div>
+                    <div id="messages">
+                    </div>
+                </div>
+                <p id="typing" ng-show="typing.length > 0">
+                    <i>{{typing.toString()}} {{typing.length > 1 ? 'are' : 'is'}} typing
+                        <span id="wait"></span>
+                    </i>
+                </p>
+                <div class="jumbotron">
+                    <input id="name" class="form-control" placeholder="Name" required>
+                    <br />
+                    <div class="input-group">
+                        <textarea id="message" type="text" class="form-control" style="height:100px" placeholder="message"></textarea>
+                        <span class="input-group-btn">
+                            <button id="send" class="btn btn-success" type="button" style="height:100px" ng-disabled="loading">Send</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" style="word-break: break-all">
+                <h5>Online users</h5>
+                <ul>
+                    <li class="online-user" ng-model="props" ng-repeat="prop in props">{{prop}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/min.js"></script>
+</html>

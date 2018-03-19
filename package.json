@@ -1,0 +1,26 @@
+{
+  "name": "node-app-framework",
+  "version": "1.0.0",
+  "description": "Test FW",
+  "main": "server.js",
+  "scripts": {
+    "prestart": "grunt",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-contrib-uglify": "^3.3.0",
+    "jasmine": "^3.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "4.16.2",
+    "express-force-ssl": "0.3.2",
+    "mongoose": "^5.0.7",
+    "push.js": "^1.0.5",
+    "socket.io": "2.0.4",
+    "underscore": "1.8.3"
+  }
+}
