@@ -139,37 +139,37 @@ socket.on('message', function (message) {
             });
             if (chatName.toLowerCase() === "swfactory"){
                 if (message.message.toLowerCase().includes('spariet')) {
-                    playAudio('/sound/spariet.mp3');
+                    playAudio('/sound/funny/spariet.mp3');
                 }
                 else if (message.message.toLowerCase().includes('haha')) {
                     if (new Date().getDay() === 5) {
-                        playAudio('/sound/haha2.mp3');
+                        playAudio('/sound/funny/haha2.mp3');
                     }
                     else {
-                        playAudio('/sound/haha.mp3');
+                        playAudio('/sound/funny/haha.mp3');
                     }
                 }
                 else if (message.message.toLowerCase().includes(':))') || message.message.toLowerCase().includes('=))')) {
-                    playAudio('/sound/haha.mp3')
+                    playAudio('/sound/funny/haha.mp3')
                 }
                 else if (message.message.toLowerCase().includes('friday')) {
-                    playAudio('/sound/do-the-friday.mp3');
+                    playAudio('/sound/funny/do-the-friday.mp3');
                 }
                 else if (message.message.toLowerCase().includes('see you on monday')) {
-                    playAudio('/sound/see-you-monday.mp3');
+                    playAudio('/sound/funny/see-you-monday.mp3');
                 }
                 else if (message.message.toLowerCase().includes('go home early')) {
-                    playAudio('/sound/go-home-early.mp3');
+                    playAudio('/sound/funny/go-home-early.mp3');
                 }
                 else if (message.message.toLowerCase().includes('lala')) {
-                    playAudio('/sound/lala.mp3');
+                    playAudio('/sound/funny/lala.mp3');
                 }
                 else {
-                    playAudio('/sound/maai.mp3');
+                    playAudio('/sound/notification.mp3');
                 }
             }
             else{
-                playAudio('/sound/maai.mp3');
+                playAudio('/sound/notification.mp3');
             }
         }
     }

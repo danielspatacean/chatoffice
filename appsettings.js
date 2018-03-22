@@ -1,6 +1,6 @@
 const settings = {
-    development: true,
-    httpPort: 3000,
+    development: false,
+    httpPort: 80,
     httpsPort: 443,
 }
 
